@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Machito &middot; Digital Strategist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michael Castilla is a Digital Strategist &amp; Consultant based in Miami, FL">
+    <meta name="author" content="Michael Castilla">
+
+    <!-- Stylesheets -->
+    <link href="system/less/bootstrap.css" rel="stylesheet">
+    <link href="system/less/responsive.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|Titillium+Web' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and Apple icons -->
+    <link rel="shortcut icon" href="../../favicon.png">
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="system/docs/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="system/docs/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="system/docs/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="system/docs/assets/ico/apple-touch-icon-57-precomposed.png">-->
+
+    <!-- Typekit -->
+    <script type="text/javascript" src="//use.typekit.net/nux1chg.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+    <!-- HEADER
+    ================================================== -->
+    <!-- Wrap the .navbar in .container to center it on the page and provide easy way to target it with .navbar-wrapper. -->
+    <div class="container">
+      <header>
+        <div class="row-fluid">
+          <div class="span4">
+            <h1 id="logo"><a class="machito" href="http://machito.co/"><img src="img/machito.png" alt="Machito" title="Hey there, thanks for visiting my site!" /><div class="machito"></div></a></h1>
+          </div>
+         <div class="span8">
+          <div id="description">
+           <h2>The semi-coherent ramblings of an entrepreneur in Miami</h2>
+           <h3><a href="http://machito.co/" title="Michael Castilla" rel="author">Michael Castilla</a> is a hacker of the web, technology, and startups</h3>
+          </div>
+         </div>
+       </div>
+      </header><!--/header-->
+    </div><!-- /.container -->
+
+    <div class="container content">
+      <div class="span9">
+        <h1 class="post-title"><a href="http://machito.co/2013/">Animate.less</span></a></h1>
+        <h2 class="post-meta">Published on December 27th, 2012 in <a href="#">Web Development</a></h2>
+        <div class="post-entry">
+          <p><strong>animate.less</strong>, originally created by <a href="https://github.com/daneden/animate.css">Dan Eden</a>, is a bunch of cool, fun, and cross-browser animations converted into LESS for you to use in your Bootstrap projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.</p>
+          <h2>Usage</h2>
+          <p><strong>animate.less</strong> is 60kb and <strong>animate.min.less</strong> is 48kb.</p>
+          <p><strong>bootstrap.less</strong> is a straightforward example of how to implement this library with Bootstrap.
+          <p><strong>animate.css</strong> is 61kb and is an original copy by Dan Eden.</p>
+
+          <h2>Bootstrap</h2>
+          <p>To use <strong>animate.less</strong> in your Bootstrap project, simply add the line below into <strong>bootstrap.less</strong>:</p>
+          <p><pre><code>@import "animate.less";</code></pre></p>
+
+          <h2>Inside your HTML</h2>
+          <p>Add the class <strong>animated</strong> to an element, along with any of the animation names.</p>
+          <p>For example:</p>
+          <p><pre><code>&lt;h1 id="logo" class="animated fadeIn"&gt;...&lt;/h1&gt;</code></pre></p>
+
+          <h2>Inside your stylesheet</h2>
+          <p>Since we're using LESS, we can utilize our animation library by adding <strong>.animated</strong> and any of the many animation names as mixins.</p>
+          <p>For example:</p>
+
+          <p><pre><code>h1#logo {
+            float: left;
+            font-family: 'Cubano', sans-serif;
+            font-weight: normal;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            padding: 0;
+            margin: 0;
+            .animated; // Initiate animation library
+            .bounce; // Initiate bounce effect
+          }
+          </code></pre></p>
+
+          <p><em>Note: if you're having issues, try re-compiling <strong>bootstrap.less</strong> for changes to take effect.</em></p>
+
+          <h2>Extending with jQuery</h2>
+          <p>You can add more functionality to your animations with jQuery such as below:</p>
+
+          <p><pre><code>$("#logo").addClass('animated bounceOutLeft');</code></pre></p>
+
+                    <p>We can also bind these classes with events or triggers like below:</p>
+
+          <p><pre><code>$(document).ready(function(){
+  $("#logo").click(function() {
+   $("this").addClass("animated bounceOutLeft");
+  });
+});</code></pre></p>
+
+
+          <h2>Editing an animation effect</h2>
+          <p>You can change the duration of your animations, extend the delay, or change the number of times that it plays. If you do edit an animation effect, make sure you change them cross-browser.</p>
+
+          <p><pre><code>#logo {
+  -vendor-animation-duration: 3s; // Change to Webkit, Mozilla, Opera, etc.
+  -vendor-animation-delay: 2s;
+  -vendor-animation-iteration-count: infinite;
+  animation-duration 3s; // Default
+  animation-delay: 2s; // Default
+  animation-iteration-count: infinite; // Default
+}</code></pre></p>
+
+          <p><em>Note: be sure to replace "vendor" in the CSS with the applicable vendor prefixes (webkit, moz, ms, o).</em></p>
+
+          <p>Safari in Mountain Lion (OS X 10.8) has a display glitch with the Flippers. They may not appear at all until the animation is completed, or the page may have other artifacting. Try  <strong>overflow: hidden</strong> on the parent div.</p>
+
+          <h2>Build a custom library</h2>
+          <p>Head over to <a href="http://daneden.me/animate/build">daneden.com/animate/build</a> to select which animations you need. This will download a .css file, so just rename it to .less and use as described above.</p>
+
+          <h2>Live demo</h2>
+          <p>View the animation library in action over at <a href="http://daneden.me/animate">daneden.com/animate</a>.</p>
+
+          <h2>Browser Support</h2>
+          <p>Since we're using CSS3, we're limited tomodern browsers like Chrome, Safari, Mozilla, and Opera.</p>
+
+          <h2>License</h2>
+          <p><strong>Animate.css</strong> is licensed under the <a href="http://licence.visualidiot.com/">&#9786;</a> license.</p>
+
+          <h2>Future Development</h2>
+          <p>I'll shortly be compiling an <strong>animation-library.less</strong> which will allow you to pick and choose which specific effects you need in your project.</p>
+
+          <p>Down the line, IE8/9 support hopefully!</p>
+
+          <h2>Thanks for reading!</h2>
+
+          <p>Learn more about <strong>animate.less</strong> on <a href="https://github.com/machito/animate.less">GitHub</a>.</p>
+          <p>If you have any questions or comments, shoot me a tweet <a href="#https://twitter.com/micr0bitz">@micr0bitz</a> :)</p>
+        </div>
+      </div>
+    </div>
+      <!-- FOOTER -->
+      <div class="container">
+      <footer class="colophon animated fadeInDown">
+        <div class="bolt"><i class="icon-bolt"></i></div>
+       <p class="pull-left">&copy; Copyright 2012 &middot; Made in Miami by <a href="http://machito.co/">Michael Castilla</a> &middot; Hosted by (mt)</p>
+       <p class="social pull-right"><a href="https://twitter.com/micr0bitz"><i class="icon-twitter-sign"></i></a> <a href="https://facebook.com/michaelcastilla"><i class="icon-facebook-sign"></i></a> <a href="https://github.com/machito"><i class="icon-github-sign"></i></a></p>
+      </footer>
+    </div>
+
+    </div><!-- /.container -->
+
+    <!-- JavaScript
+    ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  </body>
+</html>
